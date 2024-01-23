@@ -6,9 +6,11 @@ fun test(str : List<String>, key : String){
             stri.add (word)
         }
     }
+
 }
 fun main() {
     val str: List<String> =
         listOf("programming", "array", "kotlin", "algorithm", "java", "programming")
     val ch = "ra"
+    test(str,ch)
 }
