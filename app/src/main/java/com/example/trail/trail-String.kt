@@ -6,7 +6,6 @@ fun test(str : List<String>, key : String){
             stri.add (word)
         }
     }
-
 }
 fun main() {
     val str: List<String> =
