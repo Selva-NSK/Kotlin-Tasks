@@ -1,6 +1,6 @@
 
 package com.example.trail
-import kotlin.reflect.KMutableProperty0
+
 // global result
 val resultree : MutableList<Family> = mutableListOf()
 //data class
@@ -10,7 +10,7 @@ fun rootnodes(List_given : List<Family>){
     List_given.forEach{node ->
         if(node.parent==null){
             resultree.add(node)
-            findsubnodes(node,List_given)
+            findsubnodes(node,List_given.filter { it != node })
         }
     }
 }
@@ -20,12 +20,12 @@ fun findsubnodes(node : Family,List_given: List<Family>){
         if(it.parent==node.id)
         {
             node.subnodes.add(it)
-            findsubnodes(it,List_given)
+            findsubnodes(it,List_given.filter { x-> x!=it })
         }
     }
 }
 fun main() {
-    val givenlist = listOf(
+    val givenlist = mutableListOf(
         Family(1, "Node A", null),
         Family(2, "Node B", 1),
         Family(22, "Node C", 1),
