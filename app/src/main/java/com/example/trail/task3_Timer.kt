@@ -7,7 +7,7 @@ fun main()
     val c = Calendar.getInstance()
     val hour = c.get(Calendar.HOUR_OF_DAY)
     val minute = c.get(Calendar.MINUTE)
-    var seconds = c.get(Calendar.SECOND)
+    val seconds = c.get(Calendar.SECOND)
    runBlocking {
         timer(hour, minute, seconds)
         println("It's over")
@@ -17,9 +17,9 @@ suspend fun timer(hour : Int, minutes: Int , seconds : Int)= coroutineScope{
     var ss = seconds
     var mm = minutes
     var hh = hour
-    for (i in 1..10){
+    while(true){
         launch {
-            println("The Time is : $hh:$mm:$ss")
+            println("The Time is : ${hh}h:${mm}m:${ss}s")
             ss += 1
             if(ss>=60){
                 ss=0
